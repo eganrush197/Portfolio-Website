@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egan Zimmerman - Portfolio</title>
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/transitions.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <!-- iOS 7 Landing Page -->
+    <div id="landing-page" class="landing-container">
+        <div class="landing-background"></div>
+
+        <!-- iOS 7 Lock Screen Content -->
+        <div class="ios7-lock-content">
+            <div class="ios7-artist-name">EGAN ZIMMERMAN</div>
+            <div class="ios7-slide-container" id="enter-btn">
+                <div class="ios7-slide-text">click to enter portfolio</div>
+            </div>
+        </div>
+
+        <!-- iOS 7 Slide Indicator -->
+        <div class="ios7-slide-indicator">
+            <div class="ios7-slide-arrow"></div>
+        </div>
+    </div>
+
+    <!-- iOS 7 Main Portfolio Page -->
+    <div id="main-page" class="main-container hidden">
+        <main class="ios7-content">
+            <!-- iOS 7 Card for 2025 Works -->
+            <div class="ios7-card">
+                <div class="ios7-card-header">
+                    <h2 class="ios7-card-title">2025</h2>
+                    <p class="ios7-card-subtitle">Screenprint, Eugene, Oregon. April 5 - 14, 2025 / May 1 - 13, 2025.</p>
+                </div>
+                <div class="ios7-card-content">
+                    <div class="ios7-photos-grid">
+                        <div class="ios7-photo-item" data-image="images/artworks/IMAG0025.jpg">
+                            <img src="images/artworks/IMG_0257.jpg" alt="Artwork 1" class="ios7-photo-thumbnail">
+                        </div>
+                        <div class="ios7-photo-item" data-image="images/artworks/IMAG0035.jpg">
+                            <img src="images/artworks/IMG_0257.jpg" alt="Artwork 2" class="ios7-photo-thumbnail">
+                        </div>
+                        <div class="ios7-photo-item" data-image="images/artworks/IMAG0039.jpg">
+                            <img src="images/artworks/IMG_0257.jpg" alt="Artwork 3" class="ios7-photo-thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- iOS 7 Control Center Navigation -->
+        <div class="ios7-control-overlay" id="controlOverlay"></div>
+        <div class="ios7-control-indicator" id="controlIndicator"></div>
+
+        <nav class="ios7-control-center" id="controlCenter">
+            <div class="ios7-control-grid">
+                <a href="pages/home.html" class="ios7-control-button" data-page="home">
+                    <div class="ios7-control-icon ios7-control-icon-home"></div>
+                </a>
+                <a href="pages/galleries.html" class="ios7-control-button" data-page="galleries">
+                    <div class="ios7-control-icon ios7-control-icon-galleries"></div>
+                </a>
+                <a href="pages/modeling.html" class="ios7-control-button" data-page="modeling">
+                    <div class="ios7-control-icon ios7-control-icon-modeling"></div>
+                </a>
+                <a href="pages/contact.html" class="ios7-control-button" data-page="contact">
+                    <div class="ios7-control-icon ios7-control-icon-contact"></div>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" src="" alt="Enlarged artwork">
+        </div>
+    </div>
+
+    <script src="js/transitions.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+/* iOS 7 Pages - Debloated and Clean */
+
+/* All page content now uses iOS 7 components from main.css:
+   - .ios7-card for content containers
+   - .ios7-photos-grid for image layouts
+   - .ios7-form for contact forms
+   - .ios7-list for structured content
+   - .ios7-text-content for text blocks
+
+   Legacy page styles have been removed to prevent conflicts
+   with the new iOS 7 design system.
+*/

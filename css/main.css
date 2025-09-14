@@ -1,0 +1,595 @@
+/* iOS 7 Portfolio Site - Main Styles */
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeue-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* iOS 7 Color Palette */
+:root {
+    --ios7-blue: #007AFF;
+    --ios7-white: #FFFFFF;
+    --ios7-light-gray: #F7F7F7;
+    --ios7-medium-gray: #C7C7CC;
+    --ios7-text-primary: #000000;
+    --ios7-text-secondary: #aeaeb3;
+    --ios7-background: #b4b4b9;
+    --ios7-card-background: rgba(255, 255, 255, 0.95);
+}
+
+/* Base Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 100;
+    background-color: var(--ios7-background);
+    color: var(--ios7-text-primary);
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.main-container {
+    min-height: 100vh;
+    background-color: var(--ios7-background);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* iOS 7 Control Center Navigation */
+
+/* Control Center Indicator - Small dock at bottom */
+.ios7-control-indicator {
+    position: fixed;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 335px;
+    height: 7.5px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ios7-control-indicator:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateX(-50%) scale(1.1);
+}
+
+/* Control Center Panel - Ultra-Compact */
+.ios7-control-center {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    background: linear-gradient(135deg,
+        rgba(88, 86, 102, 0.96) 0%,
+        rgba(108, 106, 122, 0.96) 25%,
+        rgba(128, 126, 142, 0.96) 50%,
+        rgba(148, 146, 162, 0.96) 75%,
+        rgba(168, 166, 182, 0.96) 100%);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.15),
+                0 -4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+}
+
+.ios7-control-center.active {
+    transform: translateY(0);
+}
+
+/* Control Center Background Overlay */
+.ios7-control-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.ios7-control-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Control Center Button Grid */
+.ios7-control-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Control Center Buttons */
+.ios7-control-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.ios7-control-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
+
+.ios7-control-button.active {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.ios7-control-button.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 122, 255, 0.3);
+    border-radius: 15px;
+    animation: controlPulse 0.3s ease-out;
+}
+
+@keyframes controlPulse {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Control Center Icons */
+.ios7-control-icon {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.9;
+}
+
+
+
+/* iOS 7 Control Center Icons - Thin line style */
+.ios7-control-icon-home {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="1.5"><path d="M6 14l10-10 10 10v12a2 2 0 01-2 2H8a2 2 0 01-2-2V14z"/><path d="M12 28V18h8v10"/></svg>');
+}
+
+.ios7-control-icon-galleries {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="1.5"><rect x="6" y="8" width="20" height="16" rx="2" ry="2"/><path d="M6 18l5-5 3 3 6-6 6 6"/><circle cx="12" cy="13" r="2"/></svg>');
+}
+
+.ios7-control-icon-modeling {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="1.5"><circle cx="16" cy="8" r="4"/><path d="M12 20v8"/><path d="M20 20v8"/><path d="M8 20h16l-2-8H10l-2 8z"/></svg>');
+}
+
+.ios7-control-icon-contact {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="1.5"><rect x="4" y="6" width="24" height="20" rx="2" ry="2"/><path d="M4 8l12 8 12-8"/></svg>');
+}
+
+/* iOS 7 Text Content */
+.ios7-text-content {
+    line-height: 1.6;
+    color: var(--ios7-text-primary);
+}
+
+.ios7-text-content p {
+    margin-bottom: 1rem;
+}
+
+.ios7-text-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* iOS 7 List Styles */
+.ios7-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.ios7-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.ios7-list-item:last-child {
+    border-bottom: none;
+}
+
+.ios7-list-label {
+    font-weight: 400;
+    color: var(--ios7-text-primary);
+}
+
+.ios7-list-value {
+    color: var(--ios7-blue);
+    text-align: right;
+}
+
+.ios7-list-value a {
+    color: var(--ios7-blue);
+    text-decoration: none;
+}
+
+.ios7-list-value a:hover {
+    text-decoration: underline;
+}
+
+/* iOS 7 Form Styles */
+.ios7-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ios7-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ios7-form-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ios7-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ios7-form-input,
+.ios7-form-textarea {
+    padding: 12px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--ios7-text-primary);
+    transition: all 0.2s ease;
+}
+
+.ios7-form-input:focus,
+.ios7-form-textarea:focus {
+    outline: none;
+    border-color: var(--ios7-blue);
+    background: rgba(255, 255, 255, 1);
+}
+
+.ios7-form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.ios7-button {
+    padding: 12px 24px;
+    background: var(--ios7-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ios7-button:hover {
+    background: #0056CC;
+    transform: translateY(-1px);
+}
+
+.ios7-button:active {
+    transform: translateY(0);
+}
+
+
+
+/* Main Content Area */
+.main-content {
+    padding-bottom: 100px; /* Space for Control Center */
+    min-height: 100vh;
+}
+
+/* iOS 7 Card-Based Content */
+.ios7-content {
+    padding: 20px 16px 100px 16px;
+    max-width: 100%;
+}
+
+.ios7-card {
+    background: var(--ios7-card-background);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
+                0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ios7-card-header {
+    padding: 16px 20px;
+    border-bottom: 0.5px solid var(--ios7-medium-gray);
+}
+
+.ios7-card-title {
+    font-size: 22px;
+    font-weight: 100;
+    color: var(--ios7-text-primary);
+    margin: 0;
+}
+
+.ios7-card-subtitle {
+    font-size: 14px;
+    color: var(--ios7-text-secondary);
+    margin: 4px 0 0 0;
+}
+
+.ios7-card-content {
+    padding: 20px;
+}
+
+/* iOS 7 Photos Grid - 50% Larger Thumbnails */
+.ios7-photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 3px;
+    background: var(--ios7-white);
+    padding: 3px;
+    border-radius: 8px;
+}
+
+.ios7-photo-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    border-radius: 6px;
+}
+
+.ios7-photo-item:hover {
+    opacity: 0.8;
+}
+
+.ios7-photo-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+}
+
+/* iOS 7 Enhanced Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.96);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 2003;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.close-modal:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+#modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8),
+                0 8px 24px rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease;
+}
+
+/* Mobile Modal Adjustments */
+@media (max-width: 768px) {
+    .modal {
+        padding: 20px;
+    }
+
+    .close-modal {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        top: 5px;
+        right: 5px;
+    }
+}
+
+/* iOS 7 Buttons */
+.ios7-button {
+    background: transparent;
+    border: 1px solid var(--ios7-blue);
+    color: var(--ios7-blue);
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 300;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.ios7-button:hover {
+    background: var(--ios7-blue);
+    color: var(--ios7-white);
+}
+
+.ios7-button-primary {
+    background: var(--ios7-blue);
+    color: var(--ios7-white);
+    border: 1px solid var(--ios7-blue);
+}
+
+.ios7-button-primary:hover {
+    background: #0056CC;
+    border-color: #0056CC;
+}
+
+/* iOS 7 Responsive Design */
+@media (max-width: 768px) {
+    .ios7-content {
+        padding: 16px 12px 100px 12px;
+    }
+
+    .ios7-control-center {
+        padding: 6px 15px;
+    }
+
+    .ios7-control-grid {
+        gap: 15px;
+    }
+
+    .ios7-control-button {
+        width: 70px;
+        height: 70px;
+    }
+
+    .ios7-control-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+
+
+    .ios7-card-title {
+        font-size: 20px;
+    }
+
+    .ios7-photos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 2px;
+    }
+
+    .modal {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ios7-content {
+        padding: 12px 8px 100px 8px;
+    }
+
+    .ios7-control-center {
+        padding: 4px 12px;
+    }
+
+    .ios7-card-title {
+        font-size: 18px;
+    }
+
+    .ios7-card-subtitle {
+        font-size: 12px;
+    }
+
+    .ios7-photos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+    }
+
+    .ios7-control-grid {
+        gap: 12px;
+    }
+
+    .ios7-control-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .ios7-control-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+
+
+    .ios7-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}

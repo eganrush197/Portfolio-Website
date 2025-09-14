@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Egan Zimmerman</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/transitions.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+    <div class="main-container">
+        <main class="ios7-content">
+            <!-- iOS 7 Card for Introduction -->
+            <div class="ios7-card">
+                <div class="ios7-card-header">
+                    <h2 class="ios7-card-title">Egan Zimmerman</h2>
+                    <p class="ios7-card-subtitle">Art & Tech Major</p>
+                </div>
+                <div class="ios7-card-content">
+                    <div class="ios7-text-content">
+                        <p>Thanks for visiting my site, if you are interested in working with me please contact me on the last page,</p>               
+                        <p>love.</p>
+                        <p>Based in Eugene, OR & Austin, TX</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- iOS 7 Card for Portfolio Highlights -->
+            <div class="ios7-card">
+                <div class="ios7-card-header">
+                    <h2 class="ios7-card-title">Highlights</h2>
+                    <p class="ios7-card-subtitle">Some of my favorite moments from 2024-2025</p>
+                </div>
+                <div class="ios7-card-content">
+                    <div class="ios7-photos-grid">
+                        <div class="ios7-photo-item" data-image="../images/modeling/DSCF0584.JPG">
+                            <img src="../images/modeling/DSCF0584.JPG" alt="Recent artwork 1" class="ios7-photo-thumbnail">
+                        </div>
+                        <div class="ios7-photo-item" data-image="../images/photos/__8_0215 (1).jpg">
+                            <img src="../images/photos/__8_0215 (1).jpg" alt="Recent artwork 2" class="ios7-photo-thumbnail">
+                        </div>
+                        <div class="ios7-photo-item" data-image="../images/artworks/IMG_9215_(1).jpg">
+                            <img src="../images/artworks/IMG_9215_(1).jpg" alt="Recent artwork 3" class="ios7-photo-thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- iOS 7 Card for Education/Background -->
+            <div class="ios7-card">
+                <div class="ios7-card-header">
+                    <h2 class="ios7-card-title"></h2>
+                </div>
+                <div class="ios7-card-content">
+                    <div class="ios7-list">
+                        <div class="ios7-list-item"><i>website made by me</i></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- iOS 7 Control Center Navigation -->
+        <div class="ios7-control-overlay" id="controlOverlay"></div>
+        <div class="ios7-control-indicator" id="controlIndicator"></div>
+        <nav class="ios7-control-center" id="controlCenter">
+            <div class="ios7-control-grid">
+                <a href="home.html" class="ios7-control-button active" data-page="home">
+                    <div class="ios7-control-icon ios7-control-icon-home"></div>
+                </a>
+                <a href="galleries.html" class="ios7-control-button" data-page="galleries">
+                    <div class="ios7-control-icon ios7-control-icon-galleries"></div>
+                </a>
+                <a href="modeling.html" class="ios7-control-button" data-page="modeling">
+                    <div class="ios7-control-icon ios7-control-icon-modeling"></div>
+                </a>
+                <a href="contact.html" class="ios7-control-button" data-page="contact">
+                    <div class="ios7-control-icon ios7-control-icon-contact"></div>
+                </a>
+            </div>
+        </nav>
+
+        <!-- iOS 7 Modal for Image Viewing -->
+        <div class="modal hidden" id="modal">
+            <div class="modal-content">
+                <span class="close-modal" id="closeModal">&times;</span>
+                <img id="modal-image" src="" alt="Full size image">
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
